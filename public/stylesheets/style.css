@@ -1,8 +1,40 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*    { padding: 0; margin: 0;}
+.msg { font-weight: 700; color: rgba(255, 87, 0, 0.64); }
+body { font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+#page-wrap { padding: 2px; border: 1 solid grey;}
+
+header { background-color: rgb(228, 228, 228); text-align: center; padding: 15px; border: 1px solid grey; font-size: 1.5rem; }
+nav { background-color: #FFF; border: 1px solid grey; padding: 15px; text-align: center; }
+nav span { padding: 10px; }
+section { background-color: rgb(226, 226, 226);  border: 1px solid grey; padding: 15px; text-align: center; }
+section h3 { font-size: x-large; }
+section p { padding: 15px; }
+section div { font-weight: 700; font-size: 2rem; }
+footer {  background-color: rgb(73, 73, 73);  border: 1px solid grey; padding: 15px; color: #FFF; }
+footer a { color: #FFF; }
+.footer-left  { width:33.33%; text-align: left;  float: left; }
+.footer-mid   { width:33.33%; text-align: center; display: inline-block; }
+.footer-right { width:33.33%; text-align: right; float: right; }
+.footer-mid:before { content: "Tablet Layout"; }
+
+/* Smartphones  */
+@media only screen and (max-width: 480px) { 
+	footer { font-size: small; }
+	.footer-mid:before {	content: "Smartphone Layout"; }
+  	header h2 {  font-size: 90%; }
+  	nav { font-size: small; }
+  	section div { font-size: larger; }
+  	section h3 { display: none; }
+  	section p { font-weight: 700; font-size: 85%; }
+  	section a { font-size: smaller; }
 }
 
-a {
-  color: #00B7FF;
+/* Wide layout */
+@media only screen and (min-width:530px) and (min-device-width:481px) {
+	.footer-mid:before { content: "Wide Layout"; }
+	nav { float: left; height: 200px; width: 100px; }
+	nav span { padding: 10px; width: 100px; line-height: 30px; }
+	section { height: 200px; }
+	footer { clear: both; display: block; }
 }
