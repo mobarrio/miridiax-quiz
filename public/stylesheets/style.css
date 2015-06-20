@@ -4,19 +4,23 @@ body { font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 #page-wrap { padding: 2px; border: 1 solid grey;}
 
-header { background-color: rgb(228, 228, 228); text-align: center; padding: 15px; border: 1px solid grey; font-size: 1.5rem; }
+header { background-color: #fff; text-align: center; padding: 15px; border: 1px solid grey; font-size: 1.5rem; }
 nav { background-color: #FFF; border: 1px solid grey; padding: 15px; text-align: center; }
 nav span { padding: 10px; }
-section { background-color: rgb(226, 226, 226);  border: 1px solid grey; padding: 15px; text-align: center; }
+section { background-color: #FFF;  border: 1px solid grey; padding: 15px; text-align: center; }
 section h3 { font-size: x-large; }
 section p { padding: 15px; }
 section div { font-weight: 700; font-size: 2rem; }
-footer {  background-color: rgb(73, 73, 73);  border: 1px solid grey; padding: 15px; color: #FFF; }
-footer a { color: #FFF; }
+footer {  background-color: #FFF;  border: 1px solid grey; padding: 15px; color: #000; line-height: 25px; }
+footer a { color: #000; }
 .footer-left  { width:33.33%; text-align: left;  float: left; }
 .footer-mid   { width:33.33%; text-align: center; display: inline-block; }
 .footer-right { width:33.33%; text-align: right; float: right; }
 .footer-mid:before { content: "Tablet Layout"; }
+.author {font-family: 'Open Sans';   line-height: 1.6; color: #000;   font-size: 16px;}
+.rounded-2x { border-radius: 50px !important; }
+section div.author p { padding: 0 0 10px 0; }
+section div.author p a { color: #000;}
 
 /* Smartphones  */
 @media only screen and (max-width: 480px) { 
