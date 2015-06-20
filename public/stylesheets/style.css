@@ -17,6 +17,10 @@ footer a { color: #000; }
 .footer-mid   { width:33.33%; text-align: center; display: inline-block; }
 .footer-right { width:33.33%; text-align: right; float: right; }
 .footer-mid:before { content: "Tablet Layout"; }
+.author {font-family: 'Open Sans';   line-height: 1.6; color: #000;   font-size: 16px;}
+.rounded-2x { border-radius: 50px !important; }
+section div.author p { padding: 0 0 10px 0; }
+section div.author p a { color: #000;}
 
 /* Smartphones  */
 @media only screen and (max-width: 480px) { 

@@ -7,5 +7,6 @@ router.get('/quizes/question', quizController.pregunta);
 router.get('/quizes/answer', quizController.respuesta);
 router.get('/quizes/preguntas', quizController.pregunta);
 router.get('/quizes/respuestas', quizController.respuesta);
+router.get('/author', function(req, res, next) { res.render('author', {autor: 'Mariano J. Obarrio Miles', mail: 'mariano.obarrio@gmail.com'}); });
 
 module.exports = router;
