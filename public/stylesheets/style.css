@@ -17,10 +17,10 @@ footer a { color: #000; }
 .footer-mid   { width:33.33%; text-align: center; display: inline-block; }
 .footer-right { width:33.33%; text-align: right; float: right; }
 .footer-mid:before { content: "Tablet Layout"; }
-.author {font-family: 'Open Sans';   line-height: 1.6; color: #000;   font-size: 16px;}
+.author {font-family: 'Open Sans';   line-height: 1; color: rgba(0, 121, 223, 1);   font-size: 16px; width: 360px; margin: 0 auto; border-radius: 5px; padding: 10px; background-color: rgba(20, 167, 210, 0.14); }
 .rounded-2x { border-radius: 50px !important; }
 section div.author p { padding: 0 0 10px 0; }
-section div.author p a { color: #000;}
+section div.author p a { color: rgba(76, 173, 255, 0.92); }
 
 /* Smartphones  */
 @media only screen and (max-width: 480px) { 
@@ -37,8 +37,8 @@ section div.author p a { color: #000;}
 /* Wide layout */
 @media only screen and (min-width:530px) and (min-device-width:481px) {
 	.footer-mid:before { content: "Wide Layout"; }
-	nav { float: left; height: 200px; width: 100px; }
+	nav { float: left; height: 220px; width: 100px; }
 	nav span { padding: 10px; width: 100px; line-height: 30px; }
-	section { height: 200px; }
+	section { height: 220px; }
 	footer { clear: both; display: block; }
 }
