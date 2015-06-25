@@ -3,8 +3,14 @@ var router = express.Router();
 var quizController = require('../controller/controller_quiz');
 
 router.get('/', function(req, res, next) { res.render('index', { title: 'Bienvenido a Quiz' }); });
-router.get('/quizes/question', quizController.question);
-router.get('/quizes/answer', quizController.answer);
+
+// Autoload de comandos con :quizID
+router.param('quizID', quizController.load); // autoload: quizID
+
+// Definicion de rutas de quizes
+router.get('/quizes', quizController.index);
+router.get('/quizes/:quizID(\\d+)', quizController.show);
+router.get('/quizes/:quizID(\\d+)/answer', quizController.answer);
 router.get('/author', function(req, res, next) { res.render('author', {autor: 'Mariano J. Obarrio Miles', mail: 'mariano.obarrio@gmail.com'}); });
 
 module.exports = router;

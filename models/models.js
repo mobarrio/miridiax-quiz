@@ -41,6 +41,10 @@ sequelize.sync({force: false}).then(function () {
 			Quiz.create({
 				pregunta: 'De que color es el caballo blanco de San Martin?',
 				respuesta: 'Blanco'
+			});
+			Quiz.create({
+				pregunta: 'Cual es la capital de Italia?',
+				respuesta: 'Roma'
 			}).finally(function() {
 				console.log("Database Inicializada.");
 			});

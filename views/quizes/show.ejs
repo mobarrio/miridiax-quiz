@@ -1,0 +1,6 @@
+<form id="frmPreguntasShow"  action="/quizes/<%= quiz.id %>/answer" method="GET">
+	<p><b>Pregunta:</b> <%= quiz.pregunta %></p>
+	<input type="text" id="respuesta" name="respuesta" value="" placeholder="Respuesta" />
+	<input type="submit" value="Enviar">
+	<p><a href="/quizes">Volver a preguntas</a></p>
+</form>
