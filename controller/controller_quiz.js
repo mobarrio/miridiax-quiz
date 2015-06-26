@@ -16,7 +16,8 @@ exports.load = function (req, res, next, quizID) {
 // /quizes
 exports.index = function (req, res) {
 	if(req.query.search){
-		models.Quiz.findAll({where: ["pregunta like ?", '%' + req.query.search + '%']}).then(function(quizes){
+		var texto = req.query.search.replace(/\s/g, "%")
+		models.Quiz.findAll({where: ["pregunta like ?", '%' + texto + '%']}).then(function(quizes){
 			res.render('quizes/index', { quizes: quizes });
 		});		
 	}else{
