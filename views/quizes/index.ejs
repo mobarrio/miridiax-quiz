@@ -1,5 +1,17 @@
+<form id="frmPreguntasSearch"  action="/quizes" method="GET">
+	<p>
+		<b>Consulta:</b>
+		<input type="text" id="search" name="search" value="" placeholder="Texto a buscar..." />
+		<input type="submit" value="Buscar">
+	</p>
+</form>
+<hr>
+<% if(quizes.length === 0){ %>
+	<p>No hay coincidencias</p>
+<% }else{ %>
 <table style="margin: 0 auto;">
-<% var i; for ( i=0 ; i < quizes.length ; i++){ %>
+<% var i; var maxlist = (quizes.length < 6 ? quizes.length : 6); for ( i=0 ; i < maxlist ; i++){ %>
 <tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
 <% } %>
 </table>
+<% } %>
