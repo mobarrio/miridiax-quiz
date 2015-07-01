@@ -5,13 +5,16 @@
 		<input type="submit" value="Buscar">
 	</p>
 </form>
-<hr>
+<hr class="hr-dotted">
 <% if(quizes.length === 0){ %>
 	<p>No hay coincidencias</p>
+	<a href="/quizes"><button type="button" class="btn">Volver a preguntas</button></a>
 <% }else{ %>
 <table style="margin: 0 auto;">
 <% var i; var maxlist = (quizes.length < 6 ? quizes.length : 6); for ( i=0 ; i < maxlist ; i++){ %>
 <tr><td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td></tr>
 <% } %>
 </table>
+<p><a href="/quizes/new"><button type="button" class="btn">Crear Pregunta</button></a></p>
 <% } %>
+

@@ -5,11 +5,26 @@ body { font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 #page-wrap { padding: 2px; border: 1 solid grey;}
 
 header { background-color: #fff; text-align: center; padding: 15px; border: 1px solid grey; font-size: 1.5rem; }
-nav { background-color: #FFF; border: 1px solid grey; padding: 15px; text-align: center; }
+nav { 
+	background-color: #FFF; 
+	/*border: 1px solid grey; */
+	border-bottom: 1px solid grey;
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;	
+	padding: 15px; 
+	text-align: center; 
+}
 nav span { padding: 10px; }
-section { background-color: #FFF;  border: 1px solid grey; padding: 15px; text-align: center; }
+section { 
+	background-color: #FFF;  
+	/*border: 1px solid grey; */
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;
+	padding: 15px; 
+	text-align: center; 
+}
 section h3 { font-size: x-large; }
-section p { padding: 15px; }
+section p { padding: 8px; }
 section div { font-weight: 700; font-size: 2rem; }
 footer {  background-color: #FFF;  border: 1px solid grey; padding: 15px; color: #000; line-height: 25px; }
 footer a { color: #000; }
@@ -37,8 +52,21 @@ section div.author p a { color: #000;}
 /* Wide layout */
 @media only screen and (min-width:530px) and (min-device-width:481px) {
 	.footer-mid:before { content: "Wide Layout"; }
-	nav { float: left; height: 200px; width: 100px; }
+	nav { 
+		float: left; 
+		min-height: 200px; 
+		width: 100px; 
+		border: 0px;
+	}
 	nav span { padding: 10px; width: 100px; line-height: 30px; }
-	section { height: 200px; }
+	section { 
+		min-height: 200px; 
+		margin-left: 131px;
+  		border-left: 1px solid grey;
+  		border-right: 1px solid grey;
+	}
 	footer { clear: both; display: block; }
 }
+.rem {font-weight: 700;}
+.btn {min-width: 100px;min-height: 25px;  font-weight: 600; padding-left: 8px; padding-right: 8px;}
+.hr-dotted {border:none; border-top:1px dotted grey; color:#fff; background-color:#fff; height:1px; width:100%;margin-bottom: 0.5rem;}

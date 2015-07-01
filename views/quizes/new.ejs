@@ -1,0 +1,16 @@
+<form id="frmCrearPregunta"  action="/quizes/create" method="POST">
+	<p><h1>Añadir la pregunta</h1></p>
+	<hr class="hr-dotted">
+	<p>
+		<label for="preg" class="rem"><%=quiz.pregunta%></label>  
+		<input type="text" id="preg" name="quiz[pregunta]"  value="" placeholder="Escriba la pregunta" />
+	</p>
+	<p>
+		<label for="resp" class="rem"><%=quiz.respuesta%></label>
+		<input type="text" id="resp" name="quiz[respuesta]" value="" placeholder="Respuesta" />
+	</p>
+	<p>
+		<input type="submit" value="Guardar" class="btn">
+		<a href="/quizes"><button type="button" class="btn">Cancelar</button></a>
+	</p>
+</form>
