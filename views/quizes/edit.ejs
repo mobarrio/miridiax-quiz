@@ -1,16 +1,42 @@
 <form id="frmEditarPregunta"  action="/quizes/<%=quiz.id%>?_method=put" method="POST">
 	<p><h1>Añadir la pregunta</h1></p>
 	<hr class="hr-dotted">
-	<p>
-		<label for="preg" class="rem">Pregunta:</label>  
-		<input type="text" id="preg" name="quiz[pregunta]"  value="<%=quiz.pregunta%>" placeholder="Escriba la pregunta"  class="btn" />
-	</p>
-	<p>
-		<label for="resp" class="rem">Respuesta:</label>
-		<input type="text" id="resp" name="quiz[respuesta]" value="<%=quiz.respuesta%>" placeholder="Respuesta" class="btn" />
-	</p>
-	<p>
-		<button type="submit" class="btn btn-green"><i class="fa fa-floppy-o"></i> Guardar</button>
-		<a href="/quizes"><button type="button" class="btn btn-red"><i class="fa fa-times"></i>  Cancelar</button></a>
-	</p>
+	<div>
+		<table>
+			<tr>
+				<td style="text-align:right;">
+					<label for="preg" class="rem">Pregunta:</label>  
+				</td>
+				<td style="text-align:left;">
+					<input type="text" id="preg" name="quiz[pregunta]"  value="<%=quiz.pregunta%>" placeholder="Escriba la pregunta"  class="btn" />
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					<label for="resp" class="rem">Respuesta:</label>
+				</td>
+				<td style="text-align:left;">
+					<input type="text" id="resp" name="quiz[respuesta]" value="<%=quiz.respuesta%>" placeholder="Respuesta" class="btn" />
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">
+					<label for="tema" class="rem">Tema:</label>
+				</td>
+				<td style="text-align:left;">
+					<select id="tema" name="quiz[tema]" class="btn">
+					  <option value="otro" 			<%=(quiz.tema == 'otro' ? 'selected': '')%>>Otro</option>
+					  <option value="humanidades"	<%=(quiz.tema == 'humanidades' ? 'selected': '')%>>Humanidades</option>
+					  <option value="ocio" 			<%=(quiz.tema == 'ocio' ? 'selected': '')%>>Ocio</option>
+					  <option value="ciencia"		<%=(quiz.tema == 'ciencia' ? 'selected': '')%>>Ciencia</option>
+					  <option value="tecnologia"	<%=(quiz.tema == 'tecnologia' ? 'selected': '')%>>Tecnología</option>
+					</select>							
+				</td>
+			</tr>
+		</table>
+		<p>
+			<button type="submit" class="btn btn-green"><i class="fa fa-floppy-o"></i> Guardar</button>
+			<a href="/quizes"><button type="button" class="btn btn-red"><i class="fa fa-times"></i>  Cancelar</button></a>
+		</p>
+	</div>
 </form>

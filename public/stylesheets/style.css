@@ -87,10 +87,16 @@ section div.author p a { color: #000;}
 	}
 	footer { clear: both; display: block; }
 }
-.rem {font-weight: 700;}
+.rem {font-weight: 700;font-size: 0.9rem;}
 .btn {min-width: 100px;min-height: 25px;  font-weight: 600; padding-left: 8px; padding-right: 8px;}
 .btn-green {  background-color: rgb(35, 111, 4); color: #FFF;}
 .btn-red { background-color: red; color: #FFF; }
 .btn-icon {min-width: 48px;}
 .btn-2{  min-height: 29px; }
 .hr-dotted {border:none; border-top:1px dotted grey; color:#fff; background-color:#fff; height:1px; width:100%;margin-bottom: 0.5rem;}
+#frmCrearPregunta input { min-width: 170px; }
+#frmCrearPregunta select { min-width: 190px; }
+#frmCrearPregunta table { margin: 0 auto;width: 275px; }
+#frmEditarPregunta input  { min-width: 170px; }
+#frmEditarPregunta select { min-width: 190px; }
+#frmEditarPregunta table  { margin: 0 auto;width: 275px; }
