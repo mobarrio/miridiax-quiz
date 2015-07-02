@@ -15,6 +15,25 @@ nav {
 	text-align: center; 
 }
 nav span { padding: 10px; }
+#ErrorMsgs {
+	color: #f61;
+	width: 326px;
+	margin: 0 auto;
+	border: 1px dotted;
+	padding: 4px;
+	background-color: rgba(255, 0, 0, 0.06);
+}
+
+#ErrorMsgs p {
+	font-size: 1.5rem;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+#ErrorMsgs span {
+	font-size: 1rem;
+	font-weight: 700;
+}
+
 section { 
 	background-color: #FFF;  
 	/*border: 1px solid grey; */

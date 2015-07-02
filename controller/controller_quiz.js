@@ -18,32 +18,34 @@ exports.index = function (req, res) {
 	if(req.query.search){
 		var texto = req.query.search.replace(/\s/g, "%")
 		models.Quiz.findAll({where: ["pregunta like ?", '%' + texto + '%']}).then(function(quizes){
-			res.render('quizes/index', { quizes: quizes });
+			res.render('quizes/index', { quizes: quizes, errors: [] });
 		});		
 	}else{
 		models.Quiz.findAll().then(function(quizes){
-			res.render('quizes/index', { quizes: quizes });
+			res.render('quizes/index', { quizes: quizes, errors: [] });
 		});		
 	}
 };
 
 // /quizes/new
 exports.new = function (req, res) {
-	var quiz = models.Quiz.build({
-		pregunta: "Pregunta:",
-		respuesta: "Respuesta:"
-	});
-	res.render('quizes/new', { quiz: quiz });
+	var quiz = models.Quiz.build();
+	res.render('quizes/new', { quiz: quiz, errors: [] });
 };
 
 
 // /quizes/new
 exports.create = function (req, res) {
 	var quiz = models.Quiz.build(req.body.quiz);
-console.log("BODY:",req.body.quiz);
-	// Guarda en DB la pregunta y respuesta.
-	quiz.save({fields: ["pregunta","respuesta"]}).then(function(){
-		res.redirect("/quizes"); // Redirecciona a la lista de preguntas
+	quiz.validate().then(function(err){
+		if(err){
+			res.render('quizes/new',{quiz:quiz, errors: err.errors});
+		}else{
+			// Guarda en DB la pregunta y respuesta.
+			quiz.save({fields: ["pregunta","respuesta"]}).then(function(){
+				res.redirect("/quizes"); // Redirecciona a la lista de preguntas
+			});
+		}
 	});
 };
 
@@ -51,7 +53,7 @@ console.log("BODY:",req.body.quiz);
 // /quizes/:id
 exports.show = function (req, res) {
 	models.Quiz.findById(req.params.quizID).then(function(quiz){
-		res.render('quizes/show', { quiz: req.quiz });
+		res.render('quizes/show', { quiz: req.quiz, errors: [] });
 	});
 };
 
@@ -60,9 +62,9 @@ exports.answer = function (req, res) {
 	var respuesta = req.query.respuesta || "";
 	models.Quiz.findById(req.params.quizID).then(function(quiz){
 		if(respuesta.toUpperCase() === req.quiz.respuesta.toUpperCase()){
-		  res.render('quizes/answer', { quiz: req.quiz, respuesta: 'Correcto' });
+		  res.render('quizes/answer', { quiz: req.quiz, respuesta: 'Correcto', errors: [] });
 		}else{
-		  res.render('quizes/answer', { quiz: req.quiz, respuesta: 'Incorrecto' });
+		  res.render('quizes/answer', { quiz: req.quiz, respuesta: 'Incorrecto', errors: [] });
 		}
 	});
 };

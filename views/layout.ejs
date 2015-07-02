@@ -17,6 +17,14 @@
 			<span><a href="/author">Créditos</a></span>
 		</nav>
 		<section class="main" id="s1">
+			<% if (errors.length) { %>
+				<div id="ErrorMsgs">
+					<p><i class="fa fa-exclamation-triangle"></i> Corregir errores</p>
+					<% for (var i in errors) { %>
+					<span><i class="fa fa-times"></i> <%= errors[i].message %></span><br/>
+					<% } %>
+				</div>
+			<% } %>
 			<%- body %>
 		</section>
 		<footer class="footer" id="f1">
