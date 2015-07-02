@@ -1,0 +1,16 @@
+<form id="frmEditarPregunta"  action="/quizes/<%=quiz.id%>?_method=put" method="POST">
+	<p><h1>Añadir la pregunta</h1></p>
+	<hr class="hr-dotted">
+	<p>
+		<label for="preg" class="rem">Pregunta:</label>  
+		<input type="text" id="preg" name="quiz[pregunta]"  value="<%=quiz.pregunta%>" placeholder="Escriba la pregunta"  class="btn" />
+	</p>
+	<p>
+		<label for="resp" class="rem">Respuesta:</label>
+		<input type="text" id="resp" name="quiz[respuesta]" value="<%=quiz.respuesta%>" placeholder="Respuesta" class="btn" />
+	</p>
+	<p>
+		<button type="submit" class="btn btn-green"><i class="fa fa-floppy-o"></i> Guardar</button>
+		<a href="/quizes"><button type="button" class="btn btn-red"><i class="fa fa-times"></i>  Cancelar</button></a>
+	</p>
+</form>
