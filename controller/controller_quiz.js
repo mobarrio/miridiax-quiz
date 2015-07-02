@@ -90,3 +90,11 @@ exports.update = function (req, res) {
 		}
 	});
 };
+
+// /quizes/:id
+exports.destroy = function (req, res) {
+	req.quiz.destroy().then(function(){
+		res.redirect("/quizes"); // Redirecciona a la lista de preguntas
+	}).catch(function(error){next(error);});
+};
+

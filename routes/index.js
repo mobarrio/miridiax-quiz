@@ -15,6 +15,7 @@ router.get('/quizes/new', 					quizController.new);
 router.post('/quizes/create', 				quizController.create);
 router.get('/quizes/:quizID(\\d+)/edit', 	quizController.edit);
 router.put('/quizes/:quizID(\\d+)', 		quizController.update);
+router.delete('/quizes/:quizID(\\d+)', 		quizController.destroy);
 router.get('/author', function(req, res, next) { res.render('author', {autor: 'Mariano J. Obarrio Miles', mail: 'mariano.obarrio@gmail.com', errors: []} ); });
 
 module.exports = router;
