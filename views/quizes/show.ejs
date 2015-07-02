@@ -1,6 +1,6 @@
 <form id="frmPreguntasShow"  action="/quizes/<%= quiz.id %>/answer" method="GET">
-	<p><b>Pregunta:</b> <%= quiz.pregunta %></p>
-	<input type="text" id="respuesta" name="respuesta" value="" placeholder="Respuesta" />
-	<input type="submit" value="Enviar">
-	<p><a href="/quizes"><button type="button" class="btn">Volver a preguntas</button></a></p>
+	<span> <%= quiz.pregunta %></span>
+	<input type="text" id="respuesta" name="respuesta" value="" placeholder="Respuesta" class="btn" />
+	<button type="submit" class="btn btn-icon"><i class="fa fa-paper-plane"></i> Enviar</button>
+	<p><a href="/quizes"><button type="button" class="btn"><i class="fa fa-reply"></i> Volver a preguntas</button></a></p>
 </form>
