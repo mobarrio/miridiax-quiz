@@ -3,14 +3,14 @@
 	<hr class="hr-dotted">
 	<p>
 		<label for="preg" class="rem">Pregunta:</label>  
-		<input type="text" id="preg" name="quiz[pregunta]"  value="" placeholder="Escriba la pregunta" />
+		<input type="text" id="preg" name="quiz[pregunta]"  value="" placeholder="Escriba la pregunta"  class="btn" />
 	</p>
 	<p>
 		<label for="resp" class="rem">Respuesta:</label>
-		<input type="text" id="resp" name="quiz[respuesta]" value="" placeholder="Respuesta" />
+		<input type="text" id="resp" name="quiz[respuesta]" value="" placeholder="Respuesta" class="btn" />
 	</p>
 	<p>
-		<input type="submit" value="Guardar" class="btn">
-		<a href="/quizes"><button type="button" class="btn">Cancelar</button></a>
+		<button type="submit" class="btn btn-green"><i class="fa fa-floppy-o"></i> Guardar</button>
+		<a href="/quizes"><button type="button" class="btn btn-red"><i class="fa fa-times"></i>  Cancelar</button></a>
 	</p>
 </form>
