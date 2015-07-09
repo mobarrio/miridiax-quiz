@@ -1,0 +1,11 @@
+<form id="frmCrearComentario"  action="/quizes/<%=quizid%>/comments/" method="POST">
+	<span>Añadir Comentario</span>
+	<hr class="hr-dotted">
+	<div>
+		<input type="text" id="cmt" name="comment[comentario]"  value="" placeholder="Escriba el comentario"  class="btn" />
+		<p>
+			<button type="submit" class="btn btn-green"><i class="fa fa-floppy-o"></i> Guardar</button>
+			<a href="/quizes"><button type="button" class="btn btn-red"><i class="fa fa-times"></i>  Cancelar</button></a>
+		</p>
+	</div>
+</form>

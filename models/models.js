@@ -29,11 +29,26 @@ var sequelize = new Sequelize(DB_name, user, pwd, {
 // Importa la definicion de la tabla Quiz
 var Quiz = sequelize.import(path.join(__dirname,'quiz'));
 
+// Importa la definicion de la tabla Comments
+var Comment = sequelize.import(path.join(__dirname,'comment'));
+
+// Indica que un comment pertenece a un quiz.
+Comment.belongsTo(Quiz);
+
+// indica que un quiz puede tener muchos comments.
+Quiz.hasMany(Comment);
+
+// Nota: La relación añade la columna "QuizId" en la tabla “Comment” que contiene la clave
+//       externa (foreign key), que indica que quiz esta asociado al comentario.
+
 // Exporta la definicion de la tabla Quiz
 exports.Quiz = Quiz;
 
+// Exporta la definicion de la tabla Comments
+exports.Comment = Comment;
+
 // Crea e inicializa la tabla de preguntas (Quiz) en la DB
-sequelize.sync({force: false}).then(function () {
+sequelize.sync({force: true}).then(function () {
 	// Si la pudo inicializar ejecuta el manejador una vez para cada tabla
 	Quiz.count().then(function(count){
 		// La tabla se inicializa si esta vacia
@@ -52,7 +67,6 @@ sequelize.sync({force: false}).then(function () {
 				pregunta: 'Cual es la capital de Portugal?',
 				respuesta: 'Lisboa',
 				tema: 'humanidades'
-
 			}).finally(function() {
 				console.log("Database Inicializada.");
 			});
