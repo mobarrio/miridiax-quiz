@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var partials = require('express-partials');
+var session = require('express-session');
 var methodOverride = require('method-override');
 var routes = require('./routes/index');
 
@@ -21,10 +22,24 @@ app.use(partials());
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(cookieParser('Quiz 2015'));
+app.use(session({ secret: 'Quiz 2015 Mariano', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname + '/public/images/quiz.ico'));
+
+app.use(function(req, res, next) {
+    // Guardar path en session.redir
+    if(!req.path.match(/\/login|\/logout/)){
+      req.session.redir = req.path;
+    }else{
+      req.session.redir = "/";
+    }
+    // Hacer visible  req.session en las vistas
+    res.locals.session = req.session;
+    next();
+});
+
 app.use('/', routes);
 
 // catch 404 and forward to error handler

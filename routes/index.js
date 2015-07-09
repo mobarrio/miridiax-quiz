@@ -2,11 +2,17 @@ var express = require('express');
 var router = express.Router();
 var quizController = require('../controller/controller_quiz');
 var commentController = require('../controller/controller_comment');
+var sessionController = require('../controller/controller_session');
 
 router.get('/', function(req, res, next) { res.render('index', { title: 'Bienvenido a Quiz', errors: [] }); });
 
 // Autoload de comandos con :quizID
-router.param('quizID', quizController.load); // autoload: quizID
+router.param('quizID', 							 quizController.load); // autoload: quizID
+
+// Rutas a Login y Logout
+router.get('/login', 						     sessionController.new);
+router.post('/login', 						     sessionController.create);
+router.get('/logout', 						     sessionController.destroy);
 
 // Rutas a Quizes
 router.get('/quizes', 						     quizController.index);

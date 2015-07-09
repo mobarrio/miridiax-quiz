@@ -42,6 +42,8 @@ section {
 	padding: 15px; 
 	text-align: center; 
 }
+.session-right { float: right; font-size: 1rem; }
+.session-right a { font-size: 0.85rem; color: black;}
 .subtitulo {font-style: italic; text-shadow: rgba(0, 0, 0, 0.25) 1px 1px; }
 section h3 { font-size: x-large; }
 section p { padding: 8px; }
@@ -83,6 +85,9 @@ section div.author p a { color: #000;}
 }
 #listComments div { width: 50%; }
 #listComments span { display: block; }
+#frmLogin span {font-size: 1.5rem;background-color: rgba(255, 0, 0, 0.21);width: 275px;margin: auto;margin-bottom: 1rem;display: block;border-radius: 5px;}
+#frmLogin input { min-width: 170px; }
+#frmLogin table { margin: 0 auto;width: 275px; }
 
 /* Smartphones  */
 @media only screen and (max-width: 480px) { 
