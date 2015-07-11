@@ -4,7 +4,9 @@
 	<button type="submit" class="btn btn-icon"><i class="fa fa-paper-plane"></i> Enviar</button>
 	<p>
 		<a href="/quizes"><button type="button" class="btn"><i class="fa fa-reply"></i> Volver</button></a> 
+		<%if(session.user){%>
 		<a href="/quizes/<%= quiz.id %>/comments/new"><button type="button" class="btn btn-green"><i class="fa fa-plus"></i> Comentario</button></a>
+		<%}%>	
 	</p>
 </form>
 

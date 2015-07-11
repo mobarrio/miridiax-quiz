@@ -17,6 +17,6 @@ Set debug On Windows
 ### Ejecucion
 
 ```bash
-# npm start
+# foreman start -p 80 <- Arranca en el puerto 80
 ```
  

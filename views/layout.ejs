@@ -13,7 +13,7 @@
 	  		<%if(!session.user){%>
 	  			<span class="session-right"><a href="/login"><i class="fa fa-sign-in"></i> Login</a></span>
 	  		<% } else { %>
-	  			<span class="session-right"><strong>Bienvenido:</strong> <%=session.user.username%> ( <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a> )</span>
+	  			<span class="session-right"><%=session.user.username%> ( <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a> )</span>
 	  		<% } %>
 		    <h2>Quiz: El portal de preguntas y respuestas</h2>
 		</header>

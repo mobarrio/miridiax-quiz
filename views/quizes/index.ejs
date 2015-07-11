@@ -17,19 +17,23 @@
 			<a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a> (<%= quizes[i].tema %>)
 		</td>
 		<td style="padding-left: 1rem;">
+			<%if(session.user){%>
 			<form id="frmDeletePreguntas" action="/quizes/<%= quizes[i].id %>?_method=delete" method="POST">
 				<a href="/quizes/<%= quizes[i].id %>/edit" title="Editar: <%= quizes[i].pregunta %>"><button type="button" class="btn btn-icon"><i class="fa fa-pencil"></i></button></a>
 				<button type="submit" class="btn btn-icon" onclick="return confirm('Se eliminara: <%= quizes[i].pregunta %>')" title="Borrar: <%= quizes[i].pregunta %>"><i class="fa fa-trash"></i></button>
 			</form>
+			<%}%>
 		</td>
 	</tr>
 <% } %>
+	<%if(session.user){%>
 	<tr>
 		<td style="text-align: right;"></td>
 		<td style="padding-left: 1rem;">
 			<a href="/quizes/new" title="Crear nueva pregunta"><button type="button" class="btn btn-green"><i class="fa fa-plus"></i> Pregunta</button></a>
 		</td>
 	</tr>
+	<%}%>
 </table>
 <% } %>
 
