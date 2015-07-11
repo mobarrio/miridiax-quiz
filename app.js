@@ -9,6 +9,7 @@ var partials = require('express-partials');
 var session = require('express-session');
 var methodOverride = require('method-override');
 var routes = require('./routes/index');
+var autologout = 120; // Segundos
 
 var app = express();
 
@@ -29,6 +30,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname + '/public/images/quiz.ico'));
 
 app.use(function(req, res, next) {
+    // Modulo que controla si el usuario esta logueado por mas de 2 minutos 120 seg.
+    if(!req.path.match(/\/logout/)){
+      if(!req.session.lastAccess) { req.session.lastAccess = new Date().getTime() / 1000;  }
+      if(req.session.user){
+        var ahora = new Date().getTime() / 1000;
+        if( (ahora-req.session.lastAccess) > autologout){
+          res.redirect("/logout");
+        }else{
+          req.session.lastAccess = new Date().getTime() / 1000;
+        }
+      }
+    }
+
     // Guardar path en session.redir
     if(!req.path.match(/\/login|\/logout/)){
       req.session.redir = req.path;
