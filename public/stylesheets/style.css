@@ -88,6 +88,11 @@ section div.author p a { color: #000;}
 #frmLogin span {font-size: 1.5rem;background-color: rgba(255, 0, 0, 0.21);width: 275px;margin: auto;margin-bottom: 1rem;display: block;border-radius: 5px;}
 #frmLogin input { min-width: 170px; }
 #frmLogin table { margin: 0 auto;width: 275px; }
+.title {  font-size: 1.5rem; background-color: rgba(255, 0, 0, 0.21); width: 50%; margin: auto; margin-bottom: 1rem; display: block; border-radius: 5px;}
+#statistics { margin: auto; }
+#statistics table { margin: auto; }
+#statistics td {  font-size: 0.85rem;  text-align: right;  width: 50%;  margin: 0 auto;  padding: 1rem; font-weight: 400;}
+#statistics td.result { font-size: 1rem; color: red; font-weight: 700; text-align: left; padding-left: 0.5rem;}
 
 /* Smartphones  */
 @media only screen and (max-width: 480px) { 

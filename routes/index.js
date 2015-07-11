@@ -23,6 +23,7 @@ router.post('/quizes/create', 				     quizController.create);
 router.get('/quizes/:quizID(\\d+)/edit', 	     quizController.edit);
 router.put('/quizes/:quizID(\\d+)', 		     quizController.update);
 router.delete('/quizes/:quizID(\\d+)', 		     quizController.destroy);
+router.get('/quizes/statistics', 				 quizController.statistics);
 
 // Rutas a Comments
 router.get('/quizes/:quizID(\\d+)/comments/new', commentController.new); // Accede al formulario de crear comentario, asociado al quiz :id.

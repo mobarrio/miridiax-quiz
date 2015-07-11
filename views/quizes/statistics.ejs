@@ -1,0 +1,26 @@
+	<span class="title">Estadisticas del Juego</span>
+	<hr class="hr-dotted">
+	<div id="statistics">
+		<table>
+			<tr style="height: 2rem;">
+				<td>Nro. de preguntas :</td>
+				<td class="result"><%= stats.npreguntas %></td>
+			</tr>
+			<tr style="height: 2rem;">
+				<td>Nro. de comentarios totales :</td>
+				<td class="result"><%= stats.ncomentarios %></td>
+			</tr>
+			<tr style="height: 2rem;">
+				<td>Promedio de comentarios por pregunta :</td>
+				<td class="result"><%=stats.pcomentarios%></td>
+			</tr>
+			<tr style="height: 2rem;">
+				<td>Nro. de preguntas sin comentarios :</td>
+				<td class="result"><%=stats.sinComm%></td>
+			</tr>
+			<tr style="height: 2rem;">
+				<td>Nro. de preguntas con comentarios :</td>
+				<td class="result"><%=stats.conComm%></td>
+			</tr>
+		</table>
+	</div>	
