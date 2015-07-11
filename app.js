@@ -23,7 +23,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser('Quiz 2015'));
-app.use(session({ secret: 'Quiz 2015 Mariano', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true }))
+app.use(session({ secret: 'Quiz 2015 Mariano', cookie: { maxAge: 600000 }, resave: true, saveUninitialized: true }))
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(__dirname + '/public/images/quiz.ico'));

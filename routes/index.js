@@ -6,8 +6,8 @@ var sessionController = require('../controller/controller_session');
 
 router.get('/', function(req, res, next) { res.render('index', { title: 'Bienvenido a Quiz', errors: [] }); });
 
-// Autoload de comandos con :quizID
-router.param('quizID', 							 quizController.load); // autoload: quizID
+router.param('quizID', 							 quizController.load);    // Autoload de comandos con :quizID
+router.param('commentID',						 commentController.load); // Autoload de comandos con :commentID
 
 // Rutas a Login y Logout
 router.get('/login', 						     sessionController.new);
@@ -27,7 +27,10 @@ router.delete('/quizes/:quizID(\\d+)', 		     quizController.destroy);
 // Rutas a Comments
 router.get('/quizes/:quizID(\\d+)/comments/new', commentController.new); // Accede al formulario de crear comentario, asociado al quiz :id.
 router.post('/quizes/:quizID(\\d+)/comments',    commentController.create); // Crea una entrada en la tabla comments, asociada a :quizId en Quiz
+router.get('/quizes/:quizID(\\d+)/comments/:commentID(\\d+)/publish', sessionController.loginRequired, commentController.publish);
+router.delete('/quizes/:quizID(\\d+)/comments/:commentID(\\d+)', sessionController.loginRequired, commentController.destroy);
 
+// Ruta a los creditos
 router.get('/author', function(req, res, next) { res.render('author', {autor: 'Mariano J. Obarrio Miles', mail: 'mariano.obarrio@gmail.com', errors: []} ); });
 
 module.exports = router;
