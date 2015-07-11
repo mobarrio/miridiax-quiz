@@ -6,7 +6,14 @@
 
 var app = require('../app');
 var debug = require('debug')('quiz:server');
+var fs = require('fs');
 var http = require('http');
+var https = require('https');
+
+var options = {
+  key:  fs.readFileSync('certs/quiz-2015-key.pem').toString(),
+  cert: fs.readFileSync('certs/quiz-2015-cert.pem').toString()
+};
 
 /**
  * Get port from environment and store in Express.
@@ -28,6 +35,15 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+/**
+ * Inclusion de servidor HTTPs
+ */
+var secureport = normalizePort(process.env.SECUREPORT || '8443');
+var secureServer = https.createServer(options, app);
+secureServer.listen(secureport);
+secureServer.on('listening', onSecureListening);
+
 
 /**
  * Normalize a port into a number, string, or false.
@@ -87,4 +103,12 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+}
+
+function onSecureListening() {
+  var addr = secureServer.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('HTTPs Listening on ' + bind);
 }
