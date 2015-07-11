@@ -1,4 +1,4 @@
-MiridiaX Trabajo Practico QUIZ
+MiriadaX Trabajo Practico QUIZ
 ============
 
 Descripcion
