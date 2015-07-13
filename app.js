@@ -36,6 +36,7 @@ app.use(function(req, res, next) {
       if(req.session.user){
         var ahora = new Date().getTime() / 1000;
         if( (ahora-req.session.lastAccess) > autologout){
+          req.session.lastAccess = null;
           res.redirect("/logout");
         }else{
           req.session.lastAccess = new Date().getTime() / 1000;
